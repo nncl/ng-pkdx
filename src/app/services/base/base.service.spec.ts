@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { BaseService } from './base.service';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Injectable()
 class BService extends BaseService<any, any, any> {
@@ -20,7 +20,14 @@ describe('BaseService', () => {
   let service: BaseService<Item, Item, Item>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [ HttpClientModule ],
+      providers: [
+        {
+          provide: BaseService, useClass: BService
+        }
+      ]
+    });
     service = TestBed.inject(BaseService);
   });
 
