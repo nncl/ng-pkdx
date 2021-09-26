@@ -1,31 +1,36 @@
 <ul class="row">
-  <li *ngFor="let item of placeholders"
-      class="col-12 col-md-4">
-    <app-card></app-card>
-  </li>
+  <ng-template #loading>
+    <li *ngFor="let item of placeholders"
+        class="col-12 col-md-4">
+      <app-card></app-card>
+    </li>
+  </ng-template>
 
-  <li *ngFor="let item of [1,2,3,4,5,6,7,8,9]"
-      class="col-12 col-md-4">
-    <app-card>
+  <ng-container *ngIf="($items | async) as items; else loading">
+    <li class="col-12 col-md-4"
+        *ngFor="let item of items; let index = index">
+      <app-card>
 
-      <ng-container thumb>
-        <a [routerLink]="['/', item]" title="Bulbasaur">
-          <img src="https://dummyimage.com/72"
-               width="72"
-               height="72"
-               loading="lazy"
-               alt="Bulbasaur">
-        </a>
-      </ng-container>
+        <ng-container thumb>
+          <a [routerLink]="['/', item.name]" [title]="item.name">
+            <img
+              [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/'+ (index + 1) +'.svg'"
+              width="100"
+              height="100"
+              loading="lazy"
+              alt="Bulbasaur">
+          </a>
+        </ng-container>
 
-      <ng-container title>
-        <a [routerLink]="['/', item]" title="Bulbasaur">
-          Bulbasaur
-        </a>
-      </ng-container>
+        <ng-container title>
+          <a [routerLink]="['/', item.name]" [title]="item.name">
+            {{ item.name | titlecase }}
+          </a>
+        </ng-container>
 
-    </app-card>
-  </li>
+      </app-card>
+    </li>
+  </ng-container>
 </ul>
 
 <footer class="home-footer">
