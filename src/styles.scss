@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-assertive: #fa6a7c;
+  --color-light: #ffffff;
+  --color-smoke: #dedddd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+// Grids
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -4px;
+  margin-right: -4px;
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    flex-basis: 100% / 12 * $i;
+    max-width: 100% / 12 * $i;
+    padding: 4px;
+  }
+}
+
+@for $i from 1 through 12 {
+  @media screen and (min-width: 768px) {
+    .col-md-#{$i} {
+      flex-basis: 100% / 12 * $i;
+      max-width: 100% / 12 * $i;
+      padding: 4px;
+    }
+  }
+}
