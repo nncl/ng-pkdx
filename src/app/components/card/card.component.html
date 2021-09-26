@@ -1,0 +1,10 @@
+<article class="card"
+         [ngClass]="{'placeholder': title.childNodes.length == 0}">
+  <header class="card-header">
+    <ng-content select="[thumb]"></ng-content>
+  </header>
+
+  <h2 class="card-title" #title>
+    <ng-content select="[title]"></ng-content>
+  </h2>
+</article>
