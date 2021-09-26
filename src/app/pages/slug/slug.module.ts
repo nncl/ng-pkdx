@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SlugRoutingModule } from './slug-routing.module';
 import { SlugComponent } from './slug.component';
 import { CardModule } from '../../components/card/card.module';
+import { CardEvolutionModule } from '../../components/card-evolution/card-evolution.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { CardModule } from '../../components/card/card.module';
     imports: [
         CommonModule,
         SlugRoutingModule,
-        CardModule
+        CardModule,
+        CardEvolutionModule
     ]
 })
 export class SlugModule { }

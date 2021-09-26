@@ -6,11 +6,12 @@
 
 <app-card *ngIf="($item | async) as item; else placeholder">
   <ng-container thumb>
-    <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/'+ item.id +'.svg'"
-         width="400"
-         height="400"
-         loading="lazy"
-         [alt]="item.pokemon?.name">
+    <img
+      [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/'+ item.id +'.svg'"
+      width="400"
+      height="400"
+      loading="lazy"
+      [alt]="item.pokemon?.name">
   </ng-container>
 
   <ng-container title>
@@ -26,18 +27,13 @@
       </span>
     </div>
 
-    <div class="card-footer">
-      <h3 class="card-footer-title">
-        <a [routerLink]="['/', 'venusaur']" title="Evolution">
-          Evolves to {{ 'venusaur' | titlecase }}
-        </a>
-      </h3>
-    </div>
+    <ng-container *ngIf="($evolution | async) as evolution">
+      <app-card-evolution [items]="evolution.chain?.evolves_to"></app-card-evolution>
+    </ng-container>
 
   </ng-container>
 </app-card>
 
 <ng-template #placeholder>
   <app-card></app-card>
-  <br>
 </ng-template>
