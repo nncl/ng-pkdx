@@ -1,41 +1,42 @@
 <ul class="row">
-  <ng-template #loading>
+  <li *ngFor="let item of items; let index = index"
+      class="col-12 col-md-4">
+    <app-card>
+
+      <ng-container thumb>
+        <a [routerLink]="['/', item.name]" [title]="item.name">
+          <img
+            [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/'+ (index + 1) +'.svg'"
+            width="100"
+            height="100"
+            loading="lazy"
+            [alt]="item.name">
+        </a>
+      </ng-container>
+
+      <ng-container title>
+        <a [routerLink]="['/', item.name]" [title]="item.name">
+          {{ item.name | titlecase }}
+        </a>
+      </ng-container>
+
+    </app-card>
+  </li>
+
+  <ng-container *ngIf="loading">
     <li *ngFor="let item of placeholders"
         class="col-12 col-md-4">
       <app-card></app-card>
-    </li>
-  </ng-template>
-
-  <ng-container *ngIf="($items | async) as items; else loading">
-    <li class="col-12 col-md-4"
-        *ngFor="let item of items; let index = index">
-      <app-card>
-
-        <ng-container thumb>
-          <a [routerLink]="['/', item.name]" [title]="item.name">
-            <img
-              [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/'+ (index + 1) +'.svg'"
-              width="100"
-              height="100"
-              loading="lazy"
-              alt="Bulbasaur">
-          </a>
-        </ng-container>
-
-        <ng-container title>
-          <a [routerLink]="['/', item.name]" [title]="item.name">
-            {{ item.name | titlecase }}
-          </a>
-        </ng-container>
-
-      </app-card>
     </li>
   </ng-container>
 </ul>
 
 <footer class="home-footer">
   <button type="button"
-          class="home-footer-button">
+          class="home-footer-button"
+          title="Load more"
+          [disabled]="loading"
+          (click)="loadMore()">
     Load more
   </button>
 </footer>

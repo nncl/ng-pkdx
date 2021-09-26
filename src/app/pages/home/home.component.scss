@@ -12,6 +12,10 @@
     border-radius: 50px;
     font-size: 16px;
 
+    &[disabled] {
+      opacity: .4;
+    }
+
     &:hover {
       border-color: var(--color-assertive);
       color: var(--color-assertive);
