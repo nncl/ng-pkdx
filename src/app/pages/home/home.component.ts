@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../services/pokemon/pokemon.service';
 import { HttpParams } from '@angular/common/http';
 import { PokemonListItem } from '../../services/pokemon/models';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -15,10 +16,12 @@ export class HomeComponent implements OnInit {
   loading = true;
   page = 0;
 
-  constructor(private pokemonService: PokemonService) {
+  constructor(private title: Title,
+              private pokemonService: PokemonService) {
   }
 
   async ngOnInit() {
+    this.title.setTitle('Pokédex');
     await this.get();
   }
 
