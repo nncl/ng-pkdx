@@ -27,6 +27,13 @@ li {
   list-style: none;
 }
 
+button {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 // Grids
 .row {
   display: flex;

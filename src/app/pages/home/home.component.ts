@@ -3,11 +3,13 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: [ './home.component.scss' ]
 })
 export class HomeComponent implements OnInit {
+  placeholders = Array(12).fill('');
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

@@ -1,0 +1,21 @@
+.home-footer {
+  text-align: center;
+  padding: 48px 0;
+
+  &-button {
+    background-color: var(--color-assertive);
+    border: 3px solid transparent;
+    color: white;
+    display: inline-block;
+    transition: all .2s ease;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 16px;
+
+    &:hover {
+      border-color: var(--color-assertive);
+      color: var(--color-assertive);
+      background-color: transparent;
+    }
+  }
+}

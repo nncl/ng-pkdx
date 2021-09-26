@@ -1,10 +1,10 @@
 <ul class="row">
-  <li *ngFor="let item of [1,2,3]"
+  <li *ngFor="let item of placeholders"
       class="col-12 col-md-4">
     <app-card></app-card>
   </li>
 
-  <li *ngFor="let item of [1,2,3,4,5,6,7,8,9,0]"
+  <li *ngFor="let item of [1,2,3,4,5,6,7,8,9]"
       class="col-12 col-md-4">
     <app-card>
 
@@ -27,3 +27,10 @@
     </app-card>
   </li>
 </ul>
+
+<footer class="home-footer">
+  <button type="button"
+          class="home-footer-button">
+    Load more
+  </button>
+</footer>
