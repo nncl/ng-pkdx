@@ -1,1 +1,43 @@
-<p>slug works!</p>
+<header class="slug-header">
+  <a routerLink="/" title="Back">
+    &#8592; Go back!
+  </a>
+</header>
+
+<ng-container>
+  <app-card></app-card>
+  <br>
+</ng-container>
+
+<app-card>
+  <ng-container thumb>
+    <img src="https://dummyimage.com/72"
+         width="72"
+         height="72"
+         loading="lazy"
+         alt="Bulbasaur">
+  </ng-container>
+
+  <ng-container title>
+    Bulbasaur
+  </ng-container>
+
+  <ng-container content>
+
+    <div class="card-badge-list">
+      <span *ngFor="let type of [1,2,3,4]"
+            class="card-badge">
+        Grass
+      </span>
+    </div>
+
+    <div class="card-footer">
+      <h3 class="card-footer-title">
+        <a [routerLink]="['/', 'venusaur']" title="Evolution">
+          Evolves to {{ 'venusaur' | titlecase }}
+        </a>
+      </h3>
+    </div>
+
+  </ng-container>
+</app-card>
