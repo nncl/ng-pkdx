@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   items: PokemonListItem[] = [];
   loading = true;
   page = 0;
+  limit = 12;
 
   constructor(private title: Title,
               private pokemonService: PokemonService) {
@@ -29,8 +30,8 @@ export class HomeComponent implements OnInit {
     this.loading = true;
 
     const params = new HttpParams()
-      .set('limit', 12)
-      .set('offset', 12 * this.page);
+      .set('limit', this.limit)
+      .set('offset', this.limit * this.page);
 
     try {
       const res = await this.pokemonService.get({ params }).toPromise();
