@@ -9,7 +9,7 @@
     "test": "ng test",
     "dev:ssr": "ng run pokedex:serve-ssr",
     "serve:ssr": "node dist/pokedex/server/main.js",
-    "build:ssr": "ng build && ng run pokedex:server",
+    "build:ssr": "ng test --watch=false --browsers ChromeHeadless && ng build && ng run pokedex:server",
     "prerender": "ng run pokedex:prerender"
   },
   "private": true,
