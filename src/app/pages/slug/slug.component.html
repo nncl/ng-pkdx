@@ -1,33 +1,28 @@
 <header class="slug-header">
-  <a routerLink="/" title="Back">
+  <a (click)="back()" title="Back">
     &#8592; Go back!
   </a>
 </header>
 
-<ng-container>
-  <app-card></app-card>
-  <br>
-</ng-container>
-
-<app-card>
+<app-card *ngIf="($item | async) as item; else placeholder">
   <ng-container thumb>
-    <img src="https://dummyimage.com/72"
-         width="72"
-         height="72"
+    <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/'+ item.id +'.svg'"
+         width="400"
+         height="400"
          loading="lazy"
-         alt="Bulbasaur">
+         [alt]="item.pokemon?.name">
   </ng-container>
 
   <ng-container title>
-    Bulbasaur
+    {{ item.pokemon?.name | titlecase }}
   </ng-container>
 
   <ng-container content>
 
     <div class="card-badge-list">
-      <span *ngFor="let type of [1,2,3,4]"
+      <span *ngFor="let type of item.types"
             class="card-badge">
-        Grass
+        {{ type.type.name }}
       </span>
     </div>
 
@@ -41,3 +36,8 @@
 
   </ng-container>
 </app-card>
+
+<ng-template #placeholder>
+  <app-card></app-card>
+  <br>
+</ng-template>
