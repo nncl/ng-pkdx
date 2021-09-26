@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SlugComponent } from './slug.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
+import { TitleCasePipe } from '@angular/common';
+import { CardModule } from '../../components/card/card.module';
 
 describe('SlugComponent', () => {
   let component: SlugComponent;
@@ -8,9 +12,17 @@ describe('SlugComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SlugComponent ]
+      declarations: [ SlugComponent ],
+      imports: [
+        HttpClientModule,
+        RouterTestingModule,
+        CardModule
+      ],
+      providers: [
+        TitleCasePipe
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
