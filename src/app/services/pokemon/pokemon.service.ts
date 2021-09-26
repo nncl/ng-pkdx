@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class PokemonService extends BaseService<PokemonListItem, PokemonListItem, PokemonListItem> {
 
   constructor(private httpClient: HttpClient) {
-    super(httpClient, 'pokemon-form', 'v1');
+    super(httpClient, 'pokemon', 'v2');
   }
 
   get(options: HttpOptions = {}): Observable<PokemonListItem[]> {
