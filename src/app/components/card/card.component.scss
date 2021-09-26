@@ -69,5 +69,35 @@
     margin: 0 auto;
     max-width: 100%;
   }
+
+  &::ng-deep & {
+    &-badge-list,
+    &-footer {
+      padding: 0 12px;
+    }
+
+    &-badge-list {
+      margin-left: -4px;
+      margin-right: -4px;
+      padding: 12px;
+    }
+
+    &-badge {
+      background-color: var(--color-assertive);
+      color: var(--color-light);
+      text-transform: lowercase;
+      font-size: 12px;
+      line-height: 16px;
+      border-radius: 50px;
+      padding: 4px 12px;
+      margin: 0 4px;
+      display: inline-block;
+    }
+
+    &-footer-title {
+      color: var(--color-assertive);
+      font-size: 16px;
+    }
+  }
 }
 
