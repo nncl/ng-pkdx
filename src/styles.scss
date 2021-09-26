@@ -1,3 +1,5 @@
+@use "sass:math";
+
 :root {
   --color-assertive: #fa6a7c;
   --color-light: #ffffff;
@@ -45,8 +47,8 @@ button {
 
 @for $i from 1 through 12 {
   .col-#{$i} {
-    flex-basis: 100% / 12 * $i;
-    max-width: 100% / 12 * $i;
+    flex-basis: math.div(100%, 12) * $i;
+    max-width: math.div(100%, 12) * $i;
     padding: 4px;
   }
 }
@@ -54,8 +56,8 @@ button {
 @for $i from 1 through 12 {
   @media screen and (min-width: 768px) {
     .col-md-#{$i} {
-      flex-basis: 100% / 12 * $i;
-      max-width: 100% / 12 * $i;
+      flex-basis: math.div(100%, 12) * $i;
+      max-width: math.div(100%, 12) * $i;
       padding: 4px;
     }
   }
